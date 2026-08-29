@@ -8,6 +8,9 @@ if typing.TYPE_CHECKING:
     from biscuit.api import ExtensionsAPI
 
 
-def setup(api: ExtensionsAPI) -> None:
+def setup(api: ExtensionsAPI) -> Docker:
     """Entrypoint for Biscuit to load the extension."""
-    api.register("docker", Docker(api))
+    ext = Docker(api)
+    api.register("docker", ext)
+    ext.install()
+    return ext

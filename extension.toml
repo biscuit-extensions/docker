@@ -1,7 +1,26 @@
 [extension]
 id = "docker"
 name = "Docker"
-version = "0.1.0"
+version = "0.2.0"
 description = "Manage Docker containers, images, volumes, and compose environments"
-author = "biscuit-extensions"
+author = "tomlin7"
 icon = "icon.png"
+
+[dependencies]
+python = ["docker>=7.0.0", "pyyaml>=6.0.1"]
+tools = ["docker"]
+
+[contributes]
+commands = [
+    { id = "docker.list_containers", title = "Docker: List Containers" },
+    { id = "docker.start_container", title = "Docker: Start Container" },
+    { id = "docker.stop_container", title = "Docker: Stop Container" },
+    { id = "docker.restart_container", title = "Docker: Restart Container" },
+    { id = "docker.view_logs", title = "Docker: View Container Logs" },
+    { id = "docker.compose_up", title = "Docker Compose: Up" },
+    { id = "docker.compose_down", title = "Docker Compose: Down" },
+    { id = "docker.refresh", title = "Docker: Refresh Status" }
+]
+views = [
+    { id = "docker.explorer", title = "Docker Explorer" }
+]
